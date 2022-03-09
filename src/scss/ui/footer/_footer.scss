@@ -1,0 +1,64 @@
+@use "../../base/mixins";
+@use "../../base/variables";
+
+.footer{
+    background-color: lighten(variables.$grisClaro, 7%);
+    border-top: 2px solid lighten(variables.$gris, 40%);
+    padding-top: 5rem;
+    &__grid{
+        @include mixins.tablet{ 
+            @include mixins.grid(2, 2rem);
+        }
+        @include mixins.desktop{
+            @include mixins.grid(4, 2rem);
+        }
+    }
+    &__heading{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+    &__enlace{
+        text-transform: capitalize;
+        display: block;
+        color: variables.$gris;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    &__barra{
+        border-top: 1px solid lighten(variables.$gris, 40%);
+        margin-top: 2rem;
+        padding: 2rem 0;
+    }
+    &__barranav{
+        display: flex;
+        flex-direction: column;
+        @include mixins.tablet{ 
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }
+    &__enlace--barra{
+        &::before{
+            content: '-';
+            margin-right: .5rem;
+        }
+    }
+    &__copyright{
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 0;
+        font-weight: 700;
+    }
+    &__autor{
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0;
+        padding: 1.5rem;
+        color: darken(variables.$negro, 20%);
+        &::after{
+            content: 'Diseñador por Jorge Meza 2022';
+        }
+    }
+    
+}
